@@ -94,7 +94,7 @@ const MainLayout = () => {
                         fontSize: '26px',
                         fontFamily: "'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
                     }}>
-                        EPIX
+                        OPD-HS
                     </Title>
                     <Typography.Text style={{
                         color: 'rgba(255,255,255,0.5)',
@@ -105,7 +105,7 @@ const MainLayout = () => {
                         marginTop: '4px',
                         fontWeight: 400
                     }}>
-                        ED Pharmacy<br />Inventory eXchange
+                        ROA OPD<br />Hosp Segamat
                     </Typography.Text>
                 </div>
                 <Menu
@@ -142,7 +142,7 @@ const MainLayout = () => {
                         fontSize: '24px',
                         fontFamily: "'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
                     }}>
-                        EPIX
+                        OPD-HS
                     </Title>
                     <Typography.Text style={{
                         color: 'rgba(255,255,255,0.5)',
@@ -153,7 +153,7 @@ const MainLayout = () => {
                         marginTop: '4px',
                         fontWeight: 400
                     }}>
-                        ED Pharmacy<br />Inventory eXchange
+                        ROA OPD<br />Hosp Segamat
                     </Typography.Text>
                 </div>
                 <Menu
@@ -184,7 +184,7 @@ const MainLayout = () => {
                         style={{ fontSize: '18px' }}
                     />
                     <Title level={4} style={{ margin: 0 }}>
-                        {menuItems.find(item => item.key === location.pathname)?.label || 'PIMS'}
+                        {menuItems.find(item => item.key === location.pathname)?.label || 'OPD-HS'}
                     </Title>
                     <div />
                 </Header>
