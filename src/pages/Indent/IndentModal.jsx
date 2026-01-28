@@ -64,6 +64,7 @@ const IndentModal = ({ drug, visible, onClose, onSuccess, onDrugUpdate }) => {
             setTimeout(() => {
                 if (quantityInputRef.current) {
                     quantityInputRef.current.focus();
+                    quantityInputRef.current.select();
                 }
             }, 400);
         }
@@ -242,7 +243,7 @@ const IndentModal = ({ drug, visible, onClose, onSuccess, onDrugUpdate }) => {
                 centered
                 title={
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingRight: 24 }}>
-                        <span>Add to Indent Cart</span>
+                        <span>Add to Indent</span>
                         <Button
                             type="text"
                             icon={<FormOutlined />}
@@ -267,7 +268,7 @@ const IndentModal = ({ drug, visible, onClose, onSuccess, onDrugUpdate }) => {
                         <Space size="large" style={{ marginBottom: 12 }}>
                             {drug.item_code && (
                                 <Text type="secondary" style={{ fontSize: '13px' }}>
-                                    Code: <Text strong>{drug.item_code}</Text>
+                                    <Text strong copyable>{drug.item_code}</Text>
                                 </Text>
                             )}
                             {drug.pku && (
@@ -275,7 +276,7 @@ const IndentModal = ({ drug, visible, onClose, onSuccess, onDrugUpdate }) => {
                                     PKU: <Text strong>{drug.pku}</Text>
                                 </Text>
                             )}
-                        </Space>
+                        </Space> <br />
 
                         {/* Tags */}
                         <Space wrap style={{ marginBottom: 8, justifyContent: 'center' }}>
@@ -287,7 +288,7 @@ const IndentModal = ({ drug, visible, onClose, onSuccess, onDrugUpdate }) => {
                         {/* Remarks */}
                         {drug.remarks && (
                             <div style={{ marginTop: 8, padding: '8px 16px', backgroundColor: '#f5f5f5', borderRadius: '4px' }}>
-                                <Text style={{ fontSize: '13px', fontStyle: 'italic' }}>
+                                <Text style={{ fontSize: '13px', fontStyle: 'italic' }} editable={{ tooltip: 'Edit Remarks', triggerType: 'text' }}>
                                     {drug.remarks}
                                 </Text>
                             </div>

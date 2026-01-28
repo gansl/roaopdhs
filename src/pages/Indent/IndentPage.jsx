@@ -36,6 +36,8 @@ const IndentPage = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [indentRows, setIndentRows] = useState([]);
     const [selectedIndentRow, setSelectedIndentRow] = useState('ALL');
+    const [indentSources, setIndentSources] = useState([]);
+    const [selectedIndentSource, setSelectedIndentSource] = useState('ALL');
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(24);
     const [searchQuery, setSearchQuery] = useState('');
@@ -48,7 +50,7 @@ const IndentPage = () => {
     // Reset to first page when search query changes or indent source changes
     useEffect(() => {
         setCurrentPage(1);
-    }, [searchQuery, selectedIndentRow]);
+    }, [searchQuery, selectedIndentRow, selectedIndentSource]);
 
     const fetchDrugs = async () => {
         try {
@@ -65,6 +67,10 @@ const IndentPage = () => {
             // Extract unique indent rows
             const uniqueRows = [...new Set(data.map(d => d.row).filter(Boolean))].sort();
             setIndentRows(uniqueRows);
+
+            // Extract unique indent sources
+            const uniqueSources = [...new Set(data.map(d => d.indent_source).filter(Boolean))].sort();
+            setIndentSources(uniqueSources);
         } catch (error) {
             console.error('Error fetching drugs:', error);
             message.error('Failed to load inventory items');
@@ -104,6 +110,11 @@ const IndentPage = () => {
             result = result.filter(drug => drug.row === selectedIndentRow);
         }
 
+        // Filter by indent source
+        if (selectedIndentSource !== 'ALL') {
+            result = result.filter(drug => drug.indent_source === selectedIndentSource);
+        }
+
         // Filter by search query
         if (searchQuery) {
             const query = searchQuery.toLowerCase();
@@ -116,7 +127,7 @@ const IndentPage = () => {
         }
 
         return result;
-    }, [searchQuery, selectedIndentRow, drugs]);
+    }, [searchQuery, selectedIndentRow, selectedIndentSource, drugs]);
 
     // Memoize paginated drugs
     const paginatedDrugs = useMemo(() => {
@@ -284,6 +295,20 @@ const IndentPage = () => {
                         {indentRows.map(row => (
                             <Select.Option key={row} value={row}>
                                 {row}
+                            </Select.Option>
+                        ))}
+                    </Select>
+                    <Select
+                        placeholder="Filter by Source"
+                        style={{ width: 180 }}
+                        size="large"
+                        allowClear
+                        value={selectedIndentSource === 'ALL' ? null : selectedIndentSource}
+                        onChange={(value) => setSelectedIndentSource(value || 'ALL')}
+                    >
+                        {indentSources.map(source => (
+                            <Select.Option key={source} value={source}>
+                                {source}
                             </Select.Option>
                         ))}
                     </Select>
