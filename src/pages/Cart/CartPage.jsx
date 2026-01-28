@@ -706,7 +706,7 @@ const CartPage = () => {
                                                     }
                                                     description={
                                                         <Space direction="vertical" size="small">
-                                                            <Text>Indent: <Text strong>{item.requested_qty}</Text></Text>
+                                                            <Text>Qty: <Text strong>{item.requested_qty}</Text></Text>
                                                         </Space>
                                                     }
                                                 />
@@ -726,7 +726,7 @@ const CartPage = () => {
 
             {/* Edit Cart Item Modal */}
             <Modal
-                title="Edit Cart Item"
+                title="Edit Indent"
                 open={editingItem !== null}
                 onCancel={handleCloseEdit}
                 centered
@@ -742,17 +742,12 @@ const CartPage = () => {
 
                         {/* Item Code and PKU */}
                         <Space size="large" style={{ marginBottom: 12 }}>
-                            {editingItem?.inventory_items?.item_code && (
-                                <Text type="secondary" style={{ fontSize: '13px' }}>
-                                    Code: <Text strong>{editingItem?.inventory_items?.item_code}</Text>
-                                </Text>
-                            )}
                             {editingItem?.inventory_items?.pku && (
                                 <Text type="secondary" style={{ fontSize: '13px' }}>
                                     PKU: <Text strong>{editingItem?.inventory_items?.pku}</Text>
                                 </Text>
                             )}
-                        </Space>
+                        </Space> <br />
 
                         {/* Tags */}
                         <Space wrap style={{ marginBottom: 8, justifyContent: 'center' }}>
@@ -855,30 +850,6 @@ const CartPage = () => {
                                     <Select.Option value="Prepacking">Prepacking</Select.Option>
                                     <Select.Option value="HPSF Muar">HPSF Muar</Select.Option>
                                 </Select>
-                            </Col>
-                        </Row>
-
-                        {/* Short Expiry */}
-                        <Row gutter={[16, 16]} style={{ marginTop: 16 }}>
-                            <Col xs={24}>
-                                <Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 6 }}>
-                                    Short Expiry
-                                </Text>
-                                <Space style={{ width: '100%' }}>
-                                    <Checkbox
-                                        checked={editIsShortExp}
-                                        onChange={handleShortExpChange}
-                                    >
-                                        Mark as short expiry
-                                    </Checkbox>
-                                    {editIsShortExp && (
-                                        <CustomDateInput
-                                            value={editShortExp}
-                                            onChange={handleShortExpDateChange}
-                                            placeholder="DDMMYY"
-                                        />
-                                    )}
-                                </Space>
                             </Col>
                         </Row>
                     </div>

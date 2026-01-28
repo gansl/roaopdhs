@@ -76,20 +76,20 @@ const MainLayout = () => {
                         color: 'white',
                         margin: 0,
                         letterSpacing: '6px',
-                        fontWeight: 400,
-                        background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)',
+                        fontWeight: 450,
+                        background: 'linear-gradient(to right, #ff9966 0%, #ff5e62 100%)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         textTransform: 'uppercase',
                         fontSize: '26px',
                         fontFamily: "'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
                     }}>
-                        OPD-HS
+                        OPDHS
                     </Title>
                     <Typography.Text style={{
                         color: 'rgba(255,255,255,0.5)',
                         fontSize: '10px',
-                        letterSpacing: '1.5px',
+                        letterSpacing: '0.5px',
                         textTransform: 'uppercase',
                         display: 'block',
                         marginTop: '4px',
@@ -124,20 +124,20 @@ const MainLayout = () => {
                         color: 'white',
                         margin: 0,
                         letterSpacing: '6px',
-                        fontWeight: 300,
-                        background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)',
+                        fontWeight: 400,
+                        background: 'linear-gradient(to right, #ff9966 0%, #ff5e62 100%)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         textTransform: 'uppercase',
                         fontSize: '24px',
                         fontFamily: "'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
                     }}>
-                        OPD-HS
+                        OPDHS
                     </Title>
                     <Typography.Text style={{
                         color: 'rgba(255,255,255,0.5)',
                         fontSize: '10px',
-                        letterSpacing: '1.5px',
+                        letterSpacing: '0.5px',
                         textTransform: 'uppercase',
                         display: 'block',
                         marginTop: '4px',
